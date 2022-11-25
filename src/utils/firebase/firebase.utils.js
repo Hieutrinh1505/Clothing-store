@@ -5,10 +5,11 @@ import {
   signInWithPopup,
   GoogleAuthProvider,
   createUserWithEmailAndPassword,
-  signInWithEmailAndPassword
+  signInWithEmailAndPassword,
+  onAuthStateChanged
 } from 'firebase/auth';
 import { getFirestore, doc, getDoc, setDoc } from 'firebase/firestore';
-
+import { signOut } from 'firebase/auth';
 const firebaseConfig = {
   apiKey: "AIzaSyDfcWTgg4so6iTXcCoLEGQM8kvIaLAKnfc",
   authDomain: "clothing-store-db-afc3c.firebaseapp.com",
@@ -74,3 +75,7 @@ export const signInAuthUserWithEmailAndPassword = async (email, password) => {
   
     return await signInWithEmailAndPassword(auth, email, password);
   };
+export const signOutUser = () => signOut(auth);
+
+export const onAuthStateChangedListener = (callback) =>
+    onAuthStateChanged(auth,callback);
