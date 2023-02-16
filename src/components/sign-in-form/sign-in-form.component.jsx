@@ -7,7 +7,6 @@ import {
   signInAuthUserWithEmailAndPassword,
 } from '../../utils/firebase/firebase.utils';
 
-import { UserContext } from '../../contexts/user.context';
 import { signInWithGooglePopup } from '../../utils/firebase/firebase.utils';
 const defaultFormFields = {
   email: '',
